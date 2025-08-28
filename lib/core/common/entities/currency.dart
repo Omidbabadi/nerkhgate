@@ -24,7 +24,7 @@ class Currency extends Equatable {
       timeUnix = 0,
       symbol = 'Test String',
       nameEN = 'Test String',
-      nameFA = 'Test String',
+      nameFA = 'استرینگ تست',
       price = 0,
       changeValue = 0,
       changePercent = 0,

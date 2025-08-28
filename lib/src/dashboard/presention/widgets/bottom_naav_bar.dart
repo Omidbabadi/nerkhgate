@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myapp/src/currency/presention/views/home_view.dart';
+import 'package:myapp/src/gold/presention/views/golds_view.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});
  final tabs = const [
-      {'icon': Icons.money, 'title': "Home", 'route': '/home'},
-      {'icon': Icons.search, 'title': "Search", 'route': '/search'},
-      {'icon': Icons.person, 'title': "Profile", 'route': '/profile'},
+      {'icon': Icons.money, 'title': "Home", 'route': HomeView.path},
+      {'icon': Icons.search, 'title': "Search", 'route': GoldsView.path},
+      {'icon': Icons.person, 'title': "Profile", 'route': '/crypto_curreny'},
     ];
   @override
   Widget build(BuildContext context) {

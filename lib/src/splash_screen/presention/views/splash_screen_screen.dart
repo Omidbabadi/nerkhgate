@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:myapp/core/utils/core_utils.dart';
 import 'package:myapp/core/widgets/app_logo.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myapp/src/currency/presention/views/home_view.dart';
+import 'package:myapp/src/error/presention/views/error_screen.dart';
 import 'package:myapp/src/prices/presention/app/adapter/prices_adapter.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -31,10 +33,10 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
       
       if (n is PricesLoaded) {
        
-        CoreUtils.postFrameCallback(() => context.go('/home'));
+        CoreUtils.postFrameCallback(() => context.go(HomeView.path));
       } else if (n is PricesError) {
      
-        CoreUtils.postFrameCallback(() => context.go('/error'));
+        CoreUtils.postFrameCallback(() => context.go(ErrorScreen.path));
       }
     });
     return Scaffold(

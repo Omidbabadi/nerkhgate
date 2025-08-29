@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:myapp/core/common/application/riverpod/currenct_curreny_item_list.dart';
 import 'package:myapp/core/common/application/riverpod/current_crypto_currency_list.dart';
-import 'package:myapp/core/common/application/riverpod/current_gold_list.dart';
+import 'package:myapp/core/extensions/string_extension.dart';
 import 'package:myapp/core/res/styles/text.dart';
 import 'package:myapp/src/prices/presention/app/adapter/prices_adapter.dart';
 
@@ -14,6 +13,7 @@ class CryptoView extends ConsumerWidget {
   static const path = '/gold';
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    debugPrint('crypto view');
     final testing = [
       Currency.empty(),
       Currency.empty(),
@@ -79,6 +79,7 @@ class CryptoView extends ConsumerWidget {
                         item.symbol,
                         style: TextStyles.paragraphSubTextRegular3,
                       ),
+                      Text(''.currencyToFlag('USD'))
                     ],
                   ),
                   const SizedBox(height: 8),

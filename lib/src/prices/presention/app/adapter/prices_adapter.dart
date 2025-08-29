@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:myapp/core/common/application/riverpod/currenct_curreny_item_list.dart';
+import 'package:myapp/core/common/application/riverpod/current_crypto_currency_list.dart';
 import 'package:myapp/core/common/application/riverpod/current_curreny_list.dart';
 import 'package:myapp/core/common/application/riverpod/current_gold_list.dart';
 import 'package:myapp/src/prices/domain/usecases/get_prices_from_api.dart';
@@ -38,7 +39,9 @@ class PricesAdapter extends _$PricesAdapter {
         ref
             .read(currenctCurrenyItemListProvider.notifier)
             .setCurrentList(currencies);
-
+        ref
+            .read(currentCryptoCurrencyListProvider.notifier)
+            .setCurrentList(currencies);
         state = PricesLoaded(currencies);
       },
     );

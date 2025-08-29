@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:myapp/core/common/application/cache_helper.dart';
 import 'package:myapp/core/res/styles/colors.dart';
 import 'package:myapp/core/utils/core_utils.dart';
-import 'package:myapp/src/currency/presention/views/home_view.dart';
+import 'package:myapp/src/currency/presention/views/curreny_view.dart';
 import 'package:myapp/src/error/presention/views/error_screen.dart';
 import 'package:myapp/src/on_boarding/presention/on_boarding_info_section.dart';
 import 'package:myapp/src/prices/presention/app/adapter/prices_adapter.dart';
@@ -28,7 +28,7 @@ class _OnBoardingViewState extends ConsumerState<OnBoardingView> {
         return;
       }
       if (n is PricesLoaded) {
-        CoreUtils.postFrameCallback(() => context.go(HomeView.path));
+        CoreUtils.postFrameCallback(() => context.go(CurrencyView.path));
       }
       if (n is PricesLoading) {
         CoreUtils.postFrameCallback(() => context.go('/'));

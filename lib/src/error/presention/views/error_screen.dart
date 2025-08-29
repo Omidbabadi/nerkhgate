@@ -5,7 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:myapp/core/res/media.dart';
 import 'package:myapp/core/res/styles/text.dart';
 import 'package:myapp/core/utils/core_utils.dart';
-import 'package:myapp/src/currency/presention/views/home_view.dart';
+import 'package:myapp/src/currency/presention/views/curreny_view.dart';
 import 'package:myapp/src/prices/presention/app/adapter/prices_adapter.dart';
 
 class ErrorScreen extends ConsumerStatefulWidget {
@@ -53,7 +53,7 @@ class _ErrorScreenState extends ConsumerState<ErrorScreen>
       }
 
       if (n is PricesLoaded) {
-        CoreUtils.postFrameCallback(() => context.go(HomeView.path));
+        CoreUtils.postFrameCallback(() => context.go(CurrencyView.path));
       } else if (n is PricesError) {
         _lottieContorller.reset();
         _lottieContorller.forward();
@@ -64,7 +64,7 @@ class _ErrorScreenState extends ConsumerState<ErrorScreen>
     return Scaffold(
       floatingActionButton: FilledButton(
         onPressed: () {
-          CoreUtils.postFrameCallback(() => context.go(HomeView.path));
+          CoreUtils.postFrameCallback(() => context.go(CurrencyView.path));
 
           // ref.read(pricesAdapterProvider().notifier).getPrices();
         },

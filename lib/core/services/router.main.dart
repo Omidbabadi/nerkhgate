@@ -11,11 +11,8 @@ final router = GoRouter(
       path: '/',
 
       builder: (_, __) {
-        final cacheHelper = sl<CacheHelper>();
-        if (cacheHelper.isFirstTime()) {
-          return ProviderScope(child:const OnBoardingView());
-        }
-        return ProviderScope(child:const SplashScreen());
+
+        return ProviderScope(child: const SplashScreen());
       },
     ),
     GoRoute(
@@ -29,7 +26,12 @@ final router = GoRouter(
         );
       },
       routes: [
-        GoRoute(path: HomeView.path, builder: (_, __) => const HomeView()),
+        GoRoute(
+          path: CurrencyView.path,
+          builder: (_, __) => const CurrencyView(),
+        ),
+        GoRoute(path: GoldsView.path, builder: (_, __) => const GoldsView()),
+        GoRoute(path: CryptoView.path, builder: (_, __) => const CryptoView()),
       ],
     ),
   ],

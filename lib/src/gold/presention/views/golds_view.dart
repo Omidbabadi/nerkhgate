@@ -13,6 +13,7 @@ class GoldsView extends ConsumerWidget {
   static const path = '/gold';
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    debugPrint('gold view');
     final testing = [
       Currency.empty(),
       Currency.empty(),

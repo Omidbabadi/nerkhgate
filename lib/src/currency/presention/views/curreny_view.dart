@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myapp/core/common/application/riverpod/currenct_curreny_item_list.dart';
 import 'package:myapp/core/res/styles/text.dart';
-import 'package:myapp/src/prices/presention/app/adapter/prices_adapter.dart';
 
 import '../../../../core/common/entities/currency.dart';
 import '../../../../core/res/styles/colors.dart';
 
-class HomeView extends ConsumerWidget {
-  const HomeView({super.key});
+class CurrencyView extends ConsumerWidget {
+  const CurrencyView({super.key});
   static const path = '/currency';
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    debugPrint('currency');
     final testing = [
       Currency.empty(),
       Currency.empty(),
@@ -19,21 +19,21 @@ class HomeView extends ConsumerWidget {
       Currency.empty(),
     ];
     final currencies = ref.watch(currenctCurrenyItemListProvider);
-    if (currencies == null) {
-      return Center(
-        child: ElevatedButton(
-          onPressed: () {
-            ref.read(pricesAdapterProvider().notifier).getPrices();
-          },
-          child: Text('Get Prices'),
-        ),
-      );
-    }
+    // if (currencies == null) {
+    //   return Center(
+    //     child: ElevatedButton(
+    //       onPressed: () {
+    //         ref.read(pricesAdapterProvider().notifier).getPrices();
+    //       },
+    //       child: Text('Get Prices'),
+    //     ),
+    //   );
+    // }
     return Center(
       child: ListView.builder(
-        itemCount: currencies.length,
+        itemCount: testing.length,
         itemBuilder: (context, i) {
-          final item = currencies[i];
+          final item = testing[i];
           final Color changeColor = item.changeValue! > 0
               ? Colours.plusColor
               : item.changeValue! < 0
@@ -44,12 +44,7 @@ class HomeView extends ConsumerWidget {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(
-                    color: Colours.darkThemeSecondaryColor,
-                    width: 0.5,
-                  ),
-                ),
+               
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +63,7 @@ class HomeView extends ConsumerWidget {
                           ),
                           child: Text(
                             '${item.price} ${item.unit}',
-                            style: TextStyles.headingSemiBold1,
+                            style: TextStyles.paragraphSubTextRegular,
                           ),
                         ),
                       ),

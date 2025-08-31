@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myapp/core/services/injection_container.dart';
 import 'package:myapp/core/services/router.dart';
 import './core/res/styles/colors.dart';
@@ -6,7 +7,7 @@ import './core/res/styles/colors.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await init();
-  runApp(const MainApp());
+  runApp(const ProviderScope(child:  MainApp()));
 }
 
 class MainApp extends StatelessWidget {

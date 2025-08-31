@@ -26,17 +26,17 @@ extension StringExt on String {
     };
   }
 
-  String countryCodeToEmoji(String countryCode) {
-    return countryCode.toUpperCase().replaceAllMapped(
-      RegExp(r'[A-Z]'),
-      (match) => String.fromCharCode(match.group(0)!.codeUnitAt(0) + 127397),
-    );
+    String get asFlagFromCountryCode {
+    if (length != 2) return this; // fallback
+    final int first = codeUnitAt(0) - 0x41 + 0x1F1E6;
+    final int second = codeUnitAt(1) - 0x41 + 0x1F1E6;
+    return String.fromCharCodes([first, second]);
   }
 
-  String currencyToFlag(String currency) {
+  String get asFlagFromCurrency {
     const map = {
       "USD": "US",
-      "EUR": "EU", // Eurozone flag
+      "EUR": "EU", // no official emoji, fallback later
       "GBP": "GB",
       "JPY": "JP",
       "CNY": "CN",
@@ -178,8 +178,11 @@ extension StringExt on String {
       "ZMW": "ZM",
       "ZWL": "ZW",
     };
-    debugPrint(currency);
-    if (!map.containsKey(currency)) return "🏳"; // fallback
-    return countryCodeToEmoji(map[currency]!);
+
+    final code = toUpperCase();
+    if (!map.containsKey(code)) return "🏳"; // fallback
+
+    return map[code]!.asFlagFromCountryCode;
   }
 }
+

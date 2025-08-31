@@ -1,6 +1,9 @@
+import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:myapp/core/extensions/context_extension.dart';
+import 'package:cryptocoins_icons/cryptocoins_icons.dart';
+import '../res/styles/colors.dart';
 
 abstract class CoreUtils {
   const CoreUtils();
@@ -17,5 +20,25 @@ abstract class CoreUtils {
     required Color darkModeColur,
   }) {
     return context.isDarkMode ? darkModeColur : lightModeColour;
+  }
+
+  static CountryFlag getCountryFlag(String currencyCode) {
+    return CountryFlag.fromCurrencyCode(
+      currencyCode.toUpperCase(),
+      shape: const RoundedRectangle(8),
+      height: 32,
+    );
+  }
+
+  static IconData? getCryptoIcon(String symbol) {
+    return CryptoCoinIcons.getCryptoIcon(symbol.toUpperCase());
+  }
+
+  static Color getColorFormPrice(double price) {
+    return price > 0
+        ? Colours.plusColor
+        : price < 0
+        ? Colours.minusColor
+        : Colours.noChangeColor;
   }
 }

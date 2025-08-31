@@ -1,8 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:myapp/core/common/application/riverpod/currenct_curreny_item_list.dart';
-import 'package:myapp/core/common/application/riverpod/current_crypto_currency_list.dart';
 import 'package:myapp/core/common/application/riverpod/current_curreny_list.dart';
-import 'package:myapp/core/common/application/riverpod/current_gold_list.dart';
 import 'package:myapp/src/prices/domain/usecases/get_prices_from_api.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:equatable/equatable.dart';
@@ -32,9 +29,18 @@ class PricesAdapter extends _$PricesAdapter {
         state = PricesError(failure.message);
       },
       (currencies) {
+        debugPrint('#debug 2:Prices fetched from API ${currencies.length}');
         ref
             .read(currentCurrencyListProvider.notifier)
             .setCurrentList(currencies);
+
+        state = PricesLoaded(currencies);
+      },
+    );
+  }
+}
+
+/*
         ref.read(currentGoldListProvider.notifier).setCurrentList(currencies);
         ref
             .read(currenctCurrenyItemListProvider.notifier)
@@ -42,8 +48,4 @@ class PricesAdapter extends _$PricesAdapter {
         ref
             .read(currentCryptoCurrencyListProvider.notifier)
             .setCurrentList(currencies);
-        state = PricesLoaded(currencies);
-      },
-    );
-  }
-}
+*/

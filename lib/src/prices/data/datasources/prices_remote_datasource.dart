@@ -41,6 +41,7 @@ class PricesRemoteDatasoureceImpl implements PricesRemoteDatasource {
 
            final Currencies currencies =
           (payload['currency'] as List? )?.map((item) {
+            
             return CurrencyModel.fromMap(item, ItemTypes.currency);
           }).toList() ?? [];
 
@@ -49,15 +50,7 @@ class PricesRemoteDatasoureceImpl implements PricesRemoteDatasource {
             return CurrencyModel.fromMap(item, ItemTypes.cryptocurrency);
           }).toList() ?? [];
 
-      //final List<dynamic> golds =
-      //payload['gold'] as List? ?? [];
-     // final List<dynamic> currencies = payload['currency'] as List? ?? [];
-     // final List<dynamic> cryptoCurrencies =
-        //  payload['cryptocurrency'] as List? ?? [];
       final Currencies combiedList = golds + currencies + cryptoCurrencies;
-      // final Currencies currencyModels = combiedList
-      //     .map((item) => CurrencyModel.fromMap(item as DataMap))
-      //     .toList();
 
       return combiedList;
     } on ServerException {

@@ -19,19 +19,21 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      debugPrint('#debug 1: initState: getting prices');
       ref.read(pricesAdapterProvider().notifier).getPrices();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    ref.listen(pricesAdapterProvider(), (p, n) async {
+    ref.listen(pricesAdapterProvider(), (p, n) {
+      debugPrint('#debug 3: state changed: ${n.runtimeType} ');
       if (!mounted) {
         debugPrint('splash unmounted');
         return;
       }
-
       if (n is PricesLoaded) {
+        debugPrint('#debug 4: Navigation to currency view is about to happen');
         CoreUtils.postFrameCallback(() => context.go(CurrencyView.path));
       } else if (n is PricesError) {
         CoreUtils.postFrameCallback(() => context.go(ErrorScreen.path));

@@ -12,18 +12,16 @@ final router = GoRouter(
 
       builder: (_, __) {
 
-        return ProviderScope(child: const SplashScreen());
+        return const SplashScreen();
       },
     ),
     GoRoute(
       path: ErrorScreen.path,
-      builder: (_, __) => ProviderScope(child: const ErrorScreen()),
+      builder: (_, __) => const ErrorScreen(),
     ),
     ShellRoute(
       builder: (context, state, child) {
-        return ProviderScope(
-          child: DashboardScreen(state: state, child: child),
-        );
+        return DashboardScreen(state: state, child: child);
       },
       routes: [
         GoRoute(

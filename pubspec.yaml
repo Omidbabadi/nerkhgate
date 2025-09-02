@@ -48,6 +48,8 @@ dependencies:
   salomon_bottom_bar: ^3.3.2
   country_flags: ^3.3.0
   cryptocoins_icons: ^0.3.0
+  flutter_iconly: ^1.0.2
+
   
 
 
@@ -81,6 +83,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/lottie/
+    - assets/crypto_icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

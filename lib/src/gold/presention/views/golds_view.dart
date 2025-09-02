@@ -26,6 +26,7 @@ class GoldsView extends ConsumerWidget {
     final golds = currencies.where((element) => element.itemTypes == ItemTypes.gold).toList();
     return Center(
       child: ListView.builder(
+        key: const PageStorageKey<String>("gold"),
         itemCount: golds.length,
         itemBuilder: (context, i) {
           final item = golds[i];

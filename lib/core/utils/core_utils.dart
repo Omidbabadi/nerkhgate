@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:myapp/core/extensions/context_extension.dart';
 import 'package:cryptocoins_icons/cryptocoins_icons.dart';
+import '../res/media.dart';
 import '../res/styles/colors.dart';
 
 abstract class CoreUtils {
@@ -30,8 +31,8 @@ abstract class CoreUtils {
     );
   }
 
-  static IconData? getCryptoIcon(String symbol) {
-    return CryptoCoinIcons.getCryptoIcon(symbol.toUpperCase());
+  static Widget getCryptoIcon(String symbol) {
+    return CryptoIcon(cryptoCode: symbol.toUpperCase());
   }
 
   static Color getColorFormPrice(double price) {

@@ -26,6 +26,7 @@ class CurrencyView extends ConsumerWidget {
       ).toList();
       return Center(
         child: ListView.builder(
+          key:PageStorageKey<String>("currency"),
           itemCount: list.length,
           itemBuilder: (context, i) {
             final item = list[i];

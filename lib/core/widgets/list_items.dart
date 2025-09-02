@@ -45,10 +45,9 @@ class ListItems extends StatelessWidget {
                 const SizedBox(width: 8),
                 switch (item.itemTypes) {
                   ItemTypes.currency => CoreUtils.getCountryFlag(item.symbol),
-                  ItemTypes.cryptocurrency => Icon(
-                    CoreUtils.getCryptoIcon(item.symbol) ??
-                        Icons.currency_bitcoin,
-                  ),
+                  ItemTypes.cryptocurrency => 
+                    CoreUtils.getCryptoIcon(item.symbol),
+                  
                   _ => Text('GOLD'),
                 },
               ],

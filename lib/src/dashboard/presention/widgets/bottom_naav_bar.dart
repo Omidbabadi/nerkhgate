@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myapp/core/res/styles/colors.dart';
 import 'package:myapp/src/crypto/presention/view/crypto_view.dart';
@@ -7,13 +8,26 @@ import 'package:myapp/src/gold/presention/views/golds_view.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'dart:ui';
 
+import '../../../../core/res/media.dart';
+
 class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({super.key});
-  final tabs = const [
-    {'icon': Icons.money, 'title': "Currency", 'route': CurrencyView.path},
-    {'icon': Icons.search, 'title': "Gold", 'route': GoldsView.path},
-    {'icon': Icons.person, 'title': "Crypto", 'route': CryptoView.path},
+  const BottomNavBar({super.key, required this.location});
+  final String location;
+  static final tabs =  [
+    {'icon': Icons.money, 'title': "Currency", 'route': CurrencyView.path, 'view':const  CurrencyView()},
+    {'icon': Image.asset(Media.goldIcon), 'title': "Gold", 'route': GoldsView.path, 'view':const GoldsView()},
+    {'icon': Icons.currency_bitcoin, 'title': "Crypto", 'route': CryptoView.path, 'view':const CryptoView()},
   ];
+
+  static Widget buildIndexStack(String location) {
+    int idx = tabs.indexWhere((t) => location.startsWith(t['route'] as String));
+    if (idx == -1) idx = 0;
+    return IndexedStack(
+      index: idx,
+      children: tabs.map((t) => t['view'] as Widget).toList(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final location = GoRouterState.of(context).uri.toString();

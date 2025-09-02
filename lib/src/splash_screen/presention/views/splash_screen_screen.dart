@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:myapp/core/utils/core_utils.dart';
 import 'package:myapp/core/widgets/app_logo.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myapp/src/currency/presention/views/curreny_view.dart';
@@ -28,15 +27,15 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   Widget build(BuildContext context) {
     ref.listen(pricesAdapterProvider(), (p, n) {
       debugPrint('#debug 3: state changed: ${n.runtimeType} ');
-      if (!mounted) {
-        debugPrint('splash unmounted');
-        return;
-      }
+      
+        
+        
+      
       if (n is PricesLoaded) {
         debugPrint('#debug 4: Navigation to currency view is about to happen');
-        CoreUtils.postFrameCallback(() => context.go(CurrencyView.path));
+        context.go(CurrencyView.path);
       } else if (n is PricesError) {
-        CoreUtils.postFrameCallback(() => context.go(ErrorScreen.path));
+        context.go(ErrorScreen.path);
       }
     });
     return Scaffold(

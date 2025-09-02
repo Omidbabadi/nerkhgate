@@ -14,6 +14,8 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final location = state.uri.toString();
+
     return Scaffold(
 
       appBar: AppBar(
@@ -23,9 +25,11 @@ class DashboardScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: child,
+      body: BottomNavBar.buildIndexStack(location),
       key: DashboardUtils.scaffoldKey,
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: BottomNavBar(
+        location: location,
+      ),
     );
   }
 }

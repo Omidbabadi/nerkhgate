@@ -201,14 +201,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.6"
-  cryptocoins_icons:
-    dependency: "direct main"
-    description:
-      name: cryptocoins_icons
-      sha256: bc1d32547dbacb74e2e0f7e2d59d9c09f3ebe47b15cf968c893a8cfe8f30fec7
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.0"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -310,14 +302,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_iconly:
-    dependency: "direct main"
-    description:
-      name: flutter_iconly
-      sha256: fabcbd59d93666aed6b0f7b4285776686cf60d07447d4afbffee92635d5ed785
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.2"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -384,6 +368,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "16.2.0"
+  google_mobile_ads:
+    dependency: transitive
+    description:
+      name: google_mobile_ads
+      sha256: d2ef5ec1e1f31137fc241bdeab3037c31062d387dd221fd884fb1160444c788b
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.0"
   graphs:
     dependency: transitive
     description:
@@ -853,6 +845,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.1"
+  tapsell_plus:
+    dependency: "direct main"
+    description:
+      name: tapsell_plus
+      sha256: "328a60540b33d2b2f18d9578347cc154400518c3b31bfe6b58abc16c85353688"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.2"
   term_glyph:
     dependency: transitive
     description:
@@ -941,6 +941,38 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
+  webview_flutter:
+    dependency: transitive
+    description:
+      name: webview_flutter
+      sha256: ec81f57aa1611f8ebecf1d2259da4ef052281cb5ad624131c93546c79ccc7736
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.9.0"
+  webview_flutter_android:
+    dependency: transitive
+    description:
+      name: webview_flutter_android
+      sha256: "47a8da40d02befda5b151a26dba71f47df471cddd91dfdb7802d0a87c5442558"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.16.9"
+  webview_flutter_platform_interface:
+    dependency: transitive
+    description:
+      name: webview_flutter_platform_interface
+      sha256: "63d26ee3aca7256a83ccb576a50272edd7cfc80573a4305caa98985feb493ee0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.14.0"
+  webview_flutter_wkwebview:
+    dependency: transitive
+    description:
+      name: webview_flutter_wkwebview
+      sha256: fb46db8216131a3e55bcf44040ca808423539bc6732e7ed34fb6d8044e3d512f
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.23.0"
   xdg_directories:
     dependency: transitive
     description:

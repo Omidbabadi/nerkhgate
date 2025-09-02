@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/src/gold/presention/widgets/gold_icon.dart';
 
 import '../common/entities/currency.dart';
 import '../res/styles/colors.dart';
@@ -22,11 +23,9 @@ class ListItems extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  height: 32,
+                  height: 38,
                   decoration: BoxDecoration(
-                    color: CoreUtils.getColorFormPrice(
-                      item.changeValue ?? item.changePercent,
-                    ),
+                    color: CoreUtils.getColorFormPrice(item.changePercent),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Padding(
@@ -45,10 +44,11 @@ class ListItems extends StatelessWidget {
                 const SizedBox(width: 8),
                 switch (item.itemTypes) {
                   ItemTypes.currency => CoreUtils.getCountryFlag(item.symbol),
-                  ItemTypes.cryptocurrency => 
-                    CoreUtils.getCryptoIcon(item.symbol),
-                  
-                  _ => Text('GOLD'),
+                  ItemTypes.cryptocurrency => CoreUtils.getCryptoIcon(
+                    item.symbol,
+                  ),
+
+                  _ => GoldIcon(name: item.nameFA),
                 },
               ],
             ),
@@ -69,10 +69,11 @@ class ListItems extends StatelessWidget {
                     color: Colours.classicAdabtiveTextColor(context),
                   ),
                 ),
+                
                 Text(
                   '${item.changeValue}',
                   style: TextStyle(
-                    color: Colours.classicAdabtiveTextColor(context),
+                    color:   Colours.classicAdabtiveTextColor(context),
                   ),
                 ),
                 Padding(
@@ -90,11 +91,22 @@ class ListItems extends StatelessWidget {
                 Text(
                   ' ${item.changePercent}%',
                   style: TextStyle(
-                    color: Colours.classicAdabtiveTextColor(context),
+                    color:CoreUtils.getColorFormPrice(item.changePercent)
+                   ,
                   ),
                 ),
               ],
             ),
+            if (item.itemTypes == ItemTypes.cryptocurrency)
+              Padding(
+                padding: EdgeInsets.fromLTRB(1.0, 10.0, 1.0, 10.0),
+                child: Text(
+                  item.description!,
+                  style: TextStyles.paragraphSubTextRegular.copyWith(
+                    color: Colours.classicAdabtiveTextColor(context),
+                  ),
+                ),
+              ),
           ],
         ),
       ),

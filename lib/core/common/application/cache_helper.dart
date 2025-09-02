@@ -3,7 +3,7 @@ import 'package:myapp/core/extensions/string_extension.dart';
 import '../../extensions/theme_mode_extension.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../common.singelton/core.dart';
+import '../common/singelton/core.dart';
 
 class CacheHelper {
   const CacheHelper(this._pref);

@@ -16,7 +16,6 @@ abstract class Media {
   static const error = '$_baseLottie/failed_status.json';
 
   static const goldIcon = '$_baseImage/gold.png';
-
 }
 
 class CryptoIcon extends StatelessWidget {
@@ -27,12 +26,14 @@ class CryptoIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     const String nullCrypto = 'null';
     final uri = Media._baseCryptoIcon;
-    return Container(
-      decoration: BoxDecoration(
-        shape: BoxShape.rectangle,
-        borderRadius: BorderRadius.circular(8),
+    return SizedBox(
+      height: 38,
+     
+    
+      child: Image.asset(
+        '$uri/${cryptoCode ?? nullCrypto}.png',
+        fit: BoxFit.contain,
       ),
-      child: Image.asset('$uri/${cryptoCode ?? nullCrypto}'),
     );
   }
 }

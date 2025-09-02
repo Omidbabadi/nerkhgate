@@ -4,7 +4,7 @@ import 'package:myapp/core/widgets/appbar_title.dart';
 import 'package:myapp/src/dashboard/presention/utils/dashboard_utils.dart';
 
 import '../../../../core/widgets/bottom_appbar.dart';
-import '../widgets/bottom_naav_bar.dart';
+import '../widgets/bottom_nav_bar.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key, required this.state, required this.child});

@@ -2,7 +2,6 @@ import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:myapp/core/extensions/context_extension.dart';
-import 'package:cryptocoins_icons/cryptocoins_icons.dart';
 import '../res/media.dart';
 import '../res/styles/colors.dart';
 

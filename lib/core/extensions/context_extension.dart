@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../common/common.singelton/core.dart';
+import '../common/common/singelton/core.dart';
 
 extension ContextExt on BuildContext {
   ThemeData get theme => Theme.of(this);

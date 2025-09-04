@@ -6,7 +6,7 @@ part of 'prices_adapter.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$pricesAdapterHash() => r'd4c44960273f6bb107cd07c9fff711be2a8b6ab4';
+String _$pricesAdapterHash() => r'f1962e91dbb946962fa81531236ebacf89613c58';
 
 /// Copied from Dart SDK
 class _SystemHash {

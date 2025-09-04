@@ -31,7 +31,7 @@ class CryptoView extends ConsumerWidget {
           itemCount: list.length,
           itemBuilder: (context, i) {
             final item = list[i];
-
+        
             return ListItems(item: item);
           },
         ),

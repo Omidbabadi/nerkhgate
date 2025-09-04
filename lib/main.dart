@@ -3,23 +3,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myapp/core/services/injection_container.dart';
 import 'package:myapp/core/services/router.dart';
 import './core/res/styles/colors.dart';
-import 'package:tapsell_plus/tapsell_plus.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final isinit = await TapsellPlus.instance.initialize(
-    'pkkojresmqmcfatehpknbebmmjdtrdagepsaphjqljcfifdpqhklolthrrpkbflfsdkgfn',
-  );
-  print(isinit);
   await init();
   runApp(const ProviderScope(child: MainApp()));
 }
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
-
   @override
   Widget build(BuildContext context) {
+   
     final theme = ThemeData(
       colorScheme: ColorScheme.fromSeed(
         seedColor: Colours.lightThemePrimaryColor,

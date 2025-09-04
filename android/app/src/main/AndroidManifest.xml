@@ -1,4 +1,6 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
         <uses-permission android:name="android.permission.INTERNET" /> 
         <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
 
@@ -6,6 +8,15 @@
         android:label="NerkhGate"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+    
+    <provider
+        android:name="com.google.android.gms.ads.MobileAdsInitProvider"
+        android:authorities="${applicationId}.mobileadsinitprovider"
+        android:enabled="false"
+        android:exported="false"
+        tools:replace="android:authorities" />
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -33,6 +44,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

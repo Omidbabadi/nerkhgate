@@ -21,14 +21,15 @@ class CurrencyView extends ConsumerWidget {
         ),
       );
     } else {
-      final list = allCurrencies.where(
-        (item) => item.itemTypes == ItemTypes.currency,
-      ).toList();
+      final list = allCurrencies
+          .where((item) => item.itemTypes == ItemTypes.currency)
+          .toList();
       return Center(
         child: ListView.builder(
-          key:PageStorageKey<String>("currency"),
+          key: PageStorageKey<String>("currency"),
           itemCount: list.length,
           itemBuilder: (context, i) {
+            
             final item = list[i];
             return ListItems(item: item);
           },
@@ -37,5 +38,3 @@ class CurrencyView extends ConsumerWidget {
     }
   }
 }
-
-

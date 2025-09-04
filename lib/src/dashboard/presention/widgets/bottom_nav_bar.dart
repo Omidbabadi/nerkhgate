@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myapp/core/res/styles/colors.dart';
@@ -51,8 +52,8 @@ class BottomNavBar extends StatelessWidget {
     if (currentIndex == -1) currentIndex = 0;
     return ClipRRect(
       borderRadius: BorderRadiusGeometry.only(
-        topLeft: Radius.circular(8),
-        topRight: Radius.circular(8),
+        topLeft: Radius.circular(12),
+        topRight: Radius.circular(12),
       ),
       child: SalomonBottomBar(
         backgroundColor: Colours.testtingColor.withAlpha(14),
@@ -79,3 +80,5 @@ class BottomNavBar extends StatelessWidget {
     );
   }
 }
+
+

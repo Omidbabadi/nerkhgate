@@ -11,7 +11,6 @@ class GoldsView extends ConsumerWidget {
   static const path = '/gold';
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     final currencies = ref.watch(currentCurrencyListProvider);
     if (currencies == null) {
       return Center(
@@ -23,12 +22,17 @@ class GoldsView extends ConsumerWidget {
         ),
       );
     }
-    final golds = currencies.where((element) => element.itemTypes == ItemTypes.gold).toList();
+    final golds = currencies
+        .where((element) => element.itemTypes == ItemTypes.gold)
+        .toList();
+
+
     return Center(
       child: ListView.builder(
         key: const PageStorageKey<String>("gold"),
         itemCount: golds.length,
         itemBuilder: (context, i) {
+          
           final item = golds[i];
 
           return ListItems(item: item);

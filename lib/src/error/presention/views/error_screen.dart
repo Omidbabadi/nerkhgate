@@ -64,7 +64,7 @@ class _ErrorScreenState extends ConsumerState<ErrorScreen>
     return Scaffold(
       floatingActionButton: FilledButton(
         onPressed: () {
-          CoreUtils.postFrameCallback(() => context.go(CurrencyView.path));
+           context.go(CurrencyView.path);
 
           // ref.read(pricesAdapterProvider().notifier).getPrices();
         },

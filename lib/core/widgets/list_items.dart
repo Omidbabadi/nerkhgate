@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/core/extensions/text_style_extensions.dart';
 import 'package:myapp/src/gold/presention/widgets/gold_icon.dart';
 
 import '../common/entities/currency.dart';
@@ -59,15 +60,15 @@ class ListItems extends StatelessWidget {
               children: [
                 Text(
                   item.nameEN,
-                  style: TextStyles.paragraphSubTextRegular.copyWith(
-                    color: Colours.classicAdabtiveTextColor(context),
-                  ),
+                  style: TextStyles.paragraphSubTextRegular.adaptiveColor(context)
+                  
+                  ,
                 ),
                 Text(
                   item.nameFA,
-                  style: TextStyles.paragraphSubTextRegular.copyWith(
-                    color: Colours.classicAdabtiveTextColor(context),
-                  ),
+                  style: TextStyles.paragraphSubTextRegular.adaptiveColor(context)
+                    
+                  
                 ),
                 
                 Text(

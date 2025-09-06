@@ -7,6 +7,7 @@ import 'package:myapp/src/error/presention/views/error_screen.dart';
 import 'package:myapp/src/prices/presention/app/adapter/prices_adapter.dart';
 import 'package:adivery/adivery.dart';
 
+import '../../../../core/res/styles/colors.dart';
 import '../../../../core/utils/network_constants.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -43,6 +44,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
       }
     });
     return Scaffold(
+      backgroundColor: Colours.lightThemePrimaryColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

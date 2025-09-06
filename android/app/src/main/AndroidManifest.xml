@@ -7,7 +7,7 @@
     <application
         android:label="NerkhGate"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
     
     <provider
         android:name="com.google.android.gms.ads.MobileAdsInitProvider"

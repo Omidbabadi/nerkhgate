@@ -6,6 +6,7 @@ Future<void> init() async {
   await _cacheInite();
  
   await _pricesInit();
+ 
 }
 
 Future<void> _pricesInit() async {

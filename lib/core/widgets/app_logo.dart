@@ -10,11 +10,11 @@ class AppLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text.rich(
       TextSpan(
-        text: 'F  E',
+        text: 'Nerkh',
         style: style ?? TextStyles.appLogo.white,
         children: [
           TextSpan(
-            text: '  E',
+            text: ' Gate',
             style: TextStyle(color: Colours.lightThemeSecondaryColor),
           ),
         ],

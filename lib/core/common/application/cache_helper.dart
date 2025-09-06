@@ -19,7 +19,6 @@ class CacheHelper {
       final result = await _pref.setStringList(_favCurrency, fav);
       return result;
     } catch (e) {
-      print(e);
       return false;
     }
   }

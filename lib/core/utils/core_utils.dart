@@ -23,7 +23,7 @@ abstract class CoreUtils {
   }
 
   static CountryFlag getCountryFlag(String currencyCode) {
-    if(currencyCode ==  )
+    
     return CountryFlag.fromCurrencyCode(
       currencyCode.toUpperCase(),
       shape: const RoundedRectangle(8),

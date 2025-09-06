@@ -27,6 +27,5 @@ class Cache {
   void reset() {
     setLastPrices(null);
     setFavCurrency(null);
-    themeModeNotifier.value = ThemeMode.system;
   }
 }

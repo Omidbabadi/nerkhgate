@@ -12,6 +12,7 @@ final router = GoRouter(
 
       builder: (_, __) {
 
+
         return const SplashScreen();
       },
     ),

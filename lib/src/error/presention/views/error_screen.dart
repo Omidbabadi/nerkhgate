@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
+import 'package:myapp/core/common/application/riverpod/current_theme.dart';
 import 'package:myapp/core/res/media.dart';
 import 'package:myapp/core/res/styles/text.dart';
 import 'package:myapp/src/currency/presention/views/curreny_view.dart';
 import 'package:myapp/src/prices/presention/app/adapter/prices_adapter.dart';
+
+import '../../../../core/res/styles/colors.dart';
 
 class ErrorScreen extends ConsumerStatefulWidget {
   const ErrorScreen({super.key});
@@ -43,6 +46,7 @@ class _ErrorScreenState extends ConsumerState<ErrorScreen>
 
   @override
   Widget build(BuildContext context) {
+    ref.watch(currentThemeProvider);
     final state = ref.watch(pricesAdapterProvider());
     ref.listen(pricesAdapterProvider(), (p, n) {
       debugPrint('${state is PricesError}');
@@ -101,7 +105,9 @@ class _ErrorScreenState extends ConsumerState<ErrorScreen>
               state is PricesLoading
                   ? 'Please Wait were trying againg'
                   : 'Error: error while getting prices',
-              style: TextStyles.headingSemiBold,
+              style: TextStyles.headingSemiBold.copyWith(
+                color: Colours.classicAdabtiveTextColor(context),
+              ),
             ),
             const SizedBox(height: 32),
           ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:myapp/core/common/application/riverpod/current_theme.dart';
 import 'package:myapp/core/extensions/text_style_extensions.dart';
 import 'package:myapp/src/gold/presention/widgets/gold_icon.dart';
 
@@ -7,12 +9,13 @@ import '../res/styles/colors.dart';
 import '../res/styles/text.dart';
 import '../utils/core_utils.dart';
 
-class ListItems extends StatelessWidget {
+class ListItems extends ConsumerWidget {
   const ListItems({super.key, required this.item});
 
   final Currency item;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(currentThemeProvider);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Container(
@@ -60,21 +63,21 @@ class ListItems extends StatelessWidget {
               children: [
                 Text(
                   item.nameEN,
-                  style: TextStyles.paragraphSubTextRegular.adaptiveColor(context)
-                  
-                  ,
+                  style: TextStyles.paragraphSubTextRegular.adaptiveColor(
+                    context,
+                  ),
                 ),
                 Text(
                   item.nameFA,
-                  style: TextStyles.paragraphSubTextRegular.adaptiveColor(context)
-                    
-                  
+                  style: TextStyles.paragraphSubTextRegular.adaptiveColor(
+                    context,
+                  ),
                 ),
-                
+
                 Text(
                   '${item.changeValue}',
                   style: TextStyle(
-                    color:   Colours.classicAdabtiveTextColor(context),
+                    color: Colours.classicAdabtiveTextColor(context),
                   ),
                 ),
                 Padding(
@@ -92,8 +95,7 @@ class ListItems extends StatelessWidget {
                 Text(
                   ' ${item.changePercent}%',
                   style: TextStyle(
-                    color:CoreUtils.getColorFormPrice(item.changePercent)
-                   ,
+                    color: CoreUtils.getColorFormPrice(item.changePercent),
                   ),
                 ),
               ],
@@ -105,7 +107,6 @@ class ListItems extends StatelessWidget {
                   item.description!,
                   textAlign: TextAlign.center,
                   style: TextStyles.paragraphSubTextRegular.copyWith(
-                    
                     color: Colours.classicAdabtiveTextColor(context),
                   ),
                 ),

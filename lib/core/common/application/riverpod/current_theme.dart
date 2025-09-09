@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/core/common/common/singelton/core.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../services/injection_container.dart';
@@ -8,31 +9,35 @@ part 'current_theme.g.dart';
 
 @Riverpod(keepAlive: true)
 class CurrentTheme extends _$CurrentTheme {
+  final ValueNotifier<ThemeMode> _notifier = Cache.instance.themeModeNotifier;
   @override
   ThemeMode build() {
-    final themeMode = sl<CacheHelper>().getThemeMode();
-    return themeMode;
+    final initialThemeMode = sl<CacheHelper>().getThemeMode();
+  
+    _notifier.addListener(_onThemeChanged);
+
+    ref.onDispose(() {
+      _notifier.removeListener(_onThemeChanged);
+    });
+
+    return initialThemeMode;
   }
 
-  void toggleTheme() {
-        final newMode = switch (state) {
+   void _onThemeChanged() {
+    if (state != _notifier.value) {
+      state = _notifier.value;
+    }
+  }
+
+
+  void toggleTheme(ThemeMode theme) {
+    final newMode = switch (theme) {
       ThemeMode.light => ThemeMode.dark,
       ThemeMode.dark => ThemeMode.system,
       ThemeMode.system => ThemeMode.light,
     };
-    // ذخیره تم جدید
     sl<CacheHelper>().cacheThemeMode(newMode);
   }
 
-  IconData getThemeIcon(){
-
-
-    return switch (state) {
-      ThemeMode.light => Icons.dark_mode_outlined,
-      ThemeMode.dark => Icons.auto_awesome_outlined,
-      ThemeMode.system => Icons.light_mode_outlined,
-    };
   
-
-  }
 }

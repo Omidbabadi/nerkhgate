@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myapp/core/res/styles/colors.dart';
 import 'package:myapp/src/crypto/presention/view/crypto_view.dart';
@@ -9,7 +9,7 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import '../../../../core/res/media.dart';
 
-class BottomNavBar extends StatelessWidget {
+class BottomNavBar extends ConsumerWidget {
   const BottomNavBar({super.key, required this.location});
   final String location;
   static final tabs = [
@@ -43,7 +43,7 @@ class BottomNavBar extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final location = GoRouterState.of(context).uri.toString();
 
     int currentIndex = tabs.indexWhere(
@@ -80,5 +80,3 @@ class BottomNavBar extends StatelessWidget {
     );
   }
 }
-
-

@@ -11,15 +11,15 @@ final router = GoRouter(
       path: '/',
 
       builder: (_, __) {
-
-
         return const SplashScreen();
       },
     ),
+    GoRoute(path: ErrorScreen.path, builder: (_, __) => const ErrorScreen()),
     GoRoute(
-      path: ErrorScreen.path,
-      builder: (_, __) => const ErrorScreen(),
+      path: LoadingScreen.path,
+      builder: (_, __) => const LoadingScreen(),
     ),
+    GoRoute(path: AboutScreen.path, builder: (_, __) => const AboutScreen()),
     ShellRoute(
       builder: (context, state, child) {
         return DashboardScreen(state: state, child: child);

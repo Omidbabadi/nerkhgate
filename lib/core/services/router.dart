@@ -6,6 +6,8 @@ import 'package:myapp/src/currency/presention/views/curreny_view.dart';
 import 'package:myapp/src/gold/presention/views/golds_view.dart';
 import 'package:myapp/src/splash_screen/presention/views/splash_screen_screen.dart';
 
+import '../../src/about/presentions/views/about_screen.dart';
 import '../../src/error/presention/views/error_screen.dart';
+import '../../src/loading/presentions/view/loading_screen.dart';
 
 part 'router.main.dart';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myapp/core/common/application/riverpod/current_curreny_list.dart';
+import 'package:myapp/core/common/application/riverpod/current_theme.dart';
 import 'package:myapp/core/widgets/list_items.dart';
 import 'package:myapp/src/prices/presention/app/adapter/prices_adapter.dart';
 
@@ -11,6 +12,7 @@ class GoldsView extends ConsumerWidget {
   static const path = '/gold';
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(currentThemeProvider);
     final currencies = ref.watch(currentCurrencyListProvider);
     if (currencies == null) {
       return Center(
@@ -26,17 +28,20 @@ class GoldsView extends ConsumerWidget {
         .where((element) => element.itemTypes == ItemTypes.gold)
         .toList();
 
-
     return Center(
-      child: ListView.builder(
-        key: const PageStorageKey<String>("gold"),
-        itemCount: golds.length,
-        itemBuilder: (context, i) {
-          
-          final item = golds[i];
-
-          return ListItems(item: item);
+      child: RefreshIndicator(
+        onRefresh: () async {
+          ref.read(pricesAdapterProvider().notifier).refresh();
         },
+        child: ListView.builder(
+          key: const PageStorageKey<String>("gold"),
+          itemCount: golds.length,
+          itemBuilder: (context, i) {
+            final item = golds[i];
+
+            return ListItems(item: item);
+          },
+        ),
       ),
     );
   }

@@ -9,7 +9,7 @@ abstract class Media {
 
   static const loading = '$_baseLottie/coin_circling_wallet.json';
   static const searachLight = '$_baseLottie/';
-  static const searching = '$_baseLottie/';
+  static const about = '$_baseLottie/Information.json';
   static const error = '$_baseLottie/failed_status.json';
 
   static const goldIcon = '$_baseImage/gold.png';

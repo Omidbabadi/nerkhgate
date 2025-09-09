@@ -38,6 +38,11 @@ class PricesAdapter extends _$PricesAdapter {
       },
     );
   }
+
+  Future<void> refresh() async {
+    state = const PricesLoading();
+    await getPrices();
+  }
 }
 
 /*

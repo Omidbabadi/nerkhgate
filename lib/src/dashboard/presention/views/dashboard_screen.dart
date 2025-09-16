@@ -42,7 +42,6 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     final currentTheme = ref.watch(currentThemeProvider);
     ref.listen(pricesAdapterProvider(), (p, n) {
       if (n is PricesLoading) {
-        
         context.push(LoadingScreen.path);
       }
       if (n is PricesError) {
@@ -69,7 +68,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
             onPressed: () {
               ref.read(currentThemeProvider.notifier).toggleTheme(currentTheme);
             },
-            icon: Icon(_getThemeIcon()),
+            icon: Icon(
+              _getThemeIcon(),
+              color: Colours.darkThemePrimaryTextColor,
+            ),
           ),
         ],
         bottom: AppBarBottom(),

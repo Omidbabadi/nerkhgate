@@ -44,7 +44,7 @@ class _LoadingScreenState extends ConsumerState<LoadingScreen>
         return;
       }
       if (n is PricesLoaded) {
-        await Future.delayed(const Duration(seconds: 1));
+        await Future.delayed(const Duration(seconds: 3));
         context.pop();
       }
       if (n is PricesError) {

@@ -8,7 +8,6 @@ import 'package:myapp/core/res/media.dart';
 import 'package:myapp/core/res/styles/text.dart';
 
 import '../../../../core/res/styles/colors.dart';
-import '../../../../core/utils/core_utils.dart';
 
 class AboutScreen extends ConsumerStatefulWidget {
   const AboutScreen({super.key});
@@ -56,11 +55,7 @@ class _AboutScreenState extends ConsumerState<AboutScreen>
           },
           icon: Icon(
             Icons.arrow_back_ios_new,
-            color: CoreUtils.adabtiveColor(
-              context,
-              lightModeColour: Colours.lightThemePrimaryTextColor,
-              darkModeColur: Colours.darkThemePrimaryTextColor,
-            ),
+            color: Colours.darkThemePrimaryTextColor
           ),
         ),
         title: const Text('درباره ما'),
@@ -86,6 +81,7 @@ class _AboutScreenState extends ConsumerState<AboutScreen>
             ),
             const SizedBox(height: 32),
             Text.rich(
+              textAlign: TextAlign.center,
               TextSpan(
                 text: 'منبع تمام قیمت ها وبسایت ',
                 style: TextStyles.headingSemiBold.copyWith(
@@ -93,20 +89,19 @@ class _AboutScreenState extends ConsumerState<AboutScreen>
                 ),
                 children: [
                   TextSpan(
-                    text: 'brsapi.ir',
-                    style: TextStyles.headingSemiBold.orange,
-                  ),
-                  TextSpan(
                     text: 'میباشد',
                     style: TextStyles.headingSemiBold.copyWith(
                       color: Colours.classicAdabtiveTextColor(context),
                     ),
                   ),
+                  TextSpan(
+                    text: ' brsapi.ir ',
+                    style: TextStyles.headingSemiBold.orange,
+                  ),
+                  
                 ],
               ),
             ),
-            
-            
           ],
         ),
       ),
